@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 0,
           centerTitle: true,
@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Text(
                 "${heading!.ceil()}",
                 style: const TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 26.0,
                     fontWeight: FontWeight.bold),
               ),
@@ -52,15 +52,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    const SizedBox(
-                      child: Icon(
-                        Icons.circle,
-                        size: 200,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Transform.rotate(
+                        angle: (heading ?? 0) * (pi / 180) * -1,
+                        child: Image.asset("lib/images/1.png"),
                       ),
-                    ),
-                    Transform.rotate(
-                      angle: (heading ?? 0) * (pi / 180) * -1,
-                      child: Image.asset("lib/images/1.png"),
                     )
                   ],
                 ),
